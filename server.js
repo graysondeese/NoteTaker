@@ -30,3 +30,9 @@ if(notes === "") {
     notes = JSON.parse(notes);
 }
 
+
+
+// starting the server
+app.listen(PORT, () => {
+    console.log(`Listening on port: ${PORT}`);
+})
