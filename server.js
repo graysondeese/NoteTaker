@@ -36,11 +36,24 @@ if(notes === "") {
     notes = JSON.parse(notes);
 }
 
-//Returning notes array with json data
+// Returning notes array with json data to path api/notes
 app.get("/api/notes", (req, res) => {
     return res.json(notes);
 })
 
+// Post for a new note
+app.post("/api/notes", (req, res) => {
+    // Setting the note to a variable
+    let addNote = req.body;
+    // Adding an id to the length of the array that goes up by 1 each time and pushing the note
+    addNote.id = notes.length + 1;
+    notes.push(addNote);
+    // Writing the new file to the db.json file
+    fs.writeFileSync(__dirname + '/db/db.json', JSON.stringify(notes, null, 2), (err) => {
+        if(err) throw err;
+    })
+    res.end();
+})
 
 // starting the server
 app.listen(PORT, () => {
