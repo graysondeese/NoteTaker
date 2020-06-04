@@ -1,11 +1,12 @@
+// Requiring express and fs
 const express = require('express');
 const fs = require('fs');
 const app = express();
 
-// setting up port
+// Setting up port
 const PORT = process.env.PORT || 3030;
 
-// setting up the middle ware
+// Setting up the middle ware
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -16,3 +17,12 @@ let notes = fs.readFileSync(__dirname + '/db/db.json', 'utf-8', (err) => {
         return;
     }
 })
+
+// Setting notes to an empty arry
+if(notes === "") {
+    notes = [];
+} else {
+// Parsing the file that was read 
+    notes = JSON.parse(notes);
+}
+
