@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "title": "Gym",
+    "text": "gsdfgsdf\n",
+    "id": 1
+  },
+  {
+    "title": "Meditate",
+    "text": "fsdafdsfs",
+    "id": 2
+  },
+  {
+    "title": "Good books to read",
+    "text": "sdfasdf",
+    "id": 3
+  }
+]
