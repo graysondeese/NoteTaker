@@ -36,6 +36,10 @@ if(notes === "") {
     notes = JSON.parse(notes);
 }
 
+//Returning notes array with json data
+app.get("/api/notes", (req, res) => {
+    return res.json(notes);
+})
 
 
 // starting the server
